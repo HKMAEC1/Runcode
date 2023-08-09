@@ -52,7 +52,7 @@ df_sale = pd.read_excel("中原放盤.xlsx", sheet_name="賣盤")
 df_lease = pd.read_excel("中原放盤.xlsx", sheet_name="租盤")
 
 #Sale
-driver = webdriver.Chrome('/content/chromedriver', options = options)
+driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
 url = "https://hk.centanet.com/findproperty/list/buy"
 driver.get(url)
 
@@ -138,7 +138,7 @@ for fp in range(1,6):
 driver.quit()
 
 #Lease
-driver = webdriver.Chrome('/content/chromedriver', options = options)
+driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
 url = "https://hk.centanet.com/findproperty/list/rent"
 driver.get(url)
 
