@@ -52,7 +52,7 @@ df_sale = pd.read_excel("中原放盤.xlsx", sheet_name="賣盤")
 df_lease = pd.read_excel("中原放盤.xlsx", sheet_name="租盤")
 
 #Sale
-driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
+driver = webdriver.Chrome('/content/chromedriver', options = options)
 url = "https://hk.centanet.com/findproperty/list/buy"
 driver.get(url)
 
@@ -61,8 +61,9 @@ print(data)
 store_sale(data)
 time.sleep(3)
 
+
 for price in range(100,2001,100):
-    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[4]/span/button/i').click()
+    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
     time.sleep(3)
     driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
     driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(price-99)
@@ -77,7 +78,7 @@ for price in range(100,2001,100):
     print(data)
     store_sale(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[4]/span/button/i').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
 time.sleep(3)
 driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').clear()
 driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(2001)
@@ -88,11 +89,11 @@ data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/d
 print(data)
 store_sale(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[4]/span/button/i[1]').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i[1]').click()
 time.sleep(3)
 
 for size in range(200,1001,100):
-    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
+    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
     time.sleep(3)
     driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
     driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(size-99)
@@ -107,7 +108,7 @@ for size in range(200,1001,100):
     print(data)
     store_sale(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
 time.sleep(3)
 driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').clear()
 driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(1001)
@@ -118,10 +119,10 @@ data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/d
 print(data)
 store_sale(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i[1]').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i[1]').click()
 time.sleep(3)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[7]/span/button/i').click()
 time.sleep(3)
 
 for fp in range(1,6):
@@ -137,7 +138,7 @@ for fp in range(1,6):
 driver.quit()
 
 #Lease
-driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
+driver = webdriver.Chrome('/content/chromedriver', options = options)
 url = "https://hk.centanet.com/findproperty/list/rent"
 driver.get(url)
 
@@ -147,7 +148,7 @@ store_lease(data)
 time.sleep(3)
 
 for size in range(200,1001,100):
-    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
+    driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
     time.sleep(3)
     driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
     driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(size-99)
@@ -162,7 +163,7 @@ for size in range(200,1001,100):
     print(data)
     store_lease(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
 time.sleep(3)
 driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').clear()
 driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(1001)
@@ -173,10 +174,10 @@ data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/d
 print(data)
 store_lease(data)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i[1]').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i[1]').click()
 time.sleep(3)
 
-driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
+driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[7]/span/button/i').click()
 time.sleep(3)
 
 for fp in range(1,6):
@@ -189,7 +190,7 @@ for fp in range(1,6):
     driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div/label[' + str(fp) + ']/span[1]/span').click()
     time.sleep(3)
 
-# Add the scrapped data to df and format the datetime
+
 df_sale.loc[len(df_sale)] = Sale
 df_lease.loc[len(df_lease)] = Lease
 df_sale['日期'] = pd.to_datetime(df_sale['日期'])
@@ -197,7 +198,6 @@ df_sale['日期'] = df_sale['日期'].dt.strftime('%Y-%m-%d')
 df_lease['日期'] = pd.to_datetime(df_lease['日期'])
 df_lease['日期'] = df_lease['日期'].dt.strftime('%Y-%m-%d')
 
-# Put the df back to the Excel
 with pd.ExcelWriter("中原放盤.xlsx") as writer:
   df_sale.to_excel(writer, sheet_name="賣盤", index=False)
   df_lease.to_excel(writer, sheet_name="租盤", index=False)
