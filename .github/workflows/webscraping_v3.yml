@@ -2,7 +2,7 @@ name: webscraping_v3
 
 on:
   schedule:
-    - cron: '1 0 * * 4'  # Runs every Thursday at 12:01 am (UTC time)
+    - cron: '1 16 * * 3'  # Runs every Thursday at 12:01 am Hong Kong time (UTC+8)
 
 jobs:
   scheduled:
