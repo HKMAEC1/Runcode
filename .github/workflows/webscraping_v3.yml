@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run the Python code
-        run: python hse28.py  # Replace with the file name and appropriate command
+        run: python hse28.py hse28_resmaster.csv # Replace with the file name and appropriate command
 
       - name: Auto-push to GitHub
         if: always()
