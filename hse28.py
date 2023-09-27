@@ -214,9 +214,8 @@ date_string = today.strftime("%Y%m%d")  # Change the format as per your preferen
 # Generate the file name using the formatted date
 file_name = f"hse28_{date_string}.csv"
 
-# Save the DataFrame as a CSV with the generated file name
-file_path = f"/content/{file_name}"
-hse28_sub.to_csv(file_path, index=False)
+# Save DataFrame as CSV
+hse28_sub.to_csv(file_name, index=False)
 
-# Download the file from the "Downloads" folder
-files.download(file_path)
+# Print confirmation message
+print(f"DataFrame saved as {file_name}")
