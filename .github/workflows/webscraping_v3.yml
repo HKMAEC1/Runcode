@@ -1,6 +1,7 @@
 name: webscraping_v3
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '1 16 * * 3'  # Runs every Thursday at 12:01 am Hong Kong time (UTC+8)
 
@@ -16,7 +17,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
@@ -24,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run the Python code
-        run: python hse28.py hse28_resmaster.csv # Replace with the file name and appropriate command
+        run: python hse28.py hse28_resmaster.csv 
 
       - name: Auto-push to GitHub
         if: always()
@@ -33,4 +34,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git commit -a -m "Automated file execution"
           git add hse28_test.csv
+          git diff-index --quiet HEAD || git commit -am "archived"
           git push
