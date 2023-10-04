@@ -27,12 +27,13 @@ jobs:
       - name: Run the Python code
         run: python hse28.py hse28_resmaster.csv 
 
-      - name: Auto-push to GitHub
-        if: always()
+      - name: Create a new repository for hse28_test.csv
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git commit -a -m "Automated file execution"
+          mkdir hse28_test_repository
+          cd hse28_test_repository
+          git init
+          touch hse28_test.csv
           git add hse28_test.csv
-          git diff-index --quiet HEAD || git commit -am "archived"
-          git push
+          git commit -m "Add hse28_test.csv"
+          git remote add origin https://github.com/your-username/hse28_test_repository.git
+          git push -u origin master
