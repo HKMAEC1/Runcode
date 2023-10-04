@@ -21,7 +21,7 @@ hse28_data = pd.DataFrame()
 largest_ad_id = hse28_master["ad_id"].max()
 
 ad_id_start = int(largest_ad_id) + 1
-ad_id_end = ad_id_start + 10
+ad_id_end = ad_id_start + 10000
 
 # Take the first 20 rows from the 'ad_id' column
 #ad_ids_column = hse28_master['ad_id'].iloc[:10]
