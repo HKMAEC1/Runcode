@@ -3,7 +3,7 @@ name: webscraping_v3
 on:
   workflow_dispatch:
   schedule:
-    - cron: '1 16 * * 3'  # Runs every Thursday at 12:01 am Hong Kong time (UTC+8)
+    - cron: '1 16 * * 4'  # Runs every Thursday at 12:01 am Hong Kong time (UTC+8)
 
 jobs:
   scheduled:
