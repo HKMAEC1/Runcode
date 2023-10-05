@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run the Python code
-        run: python hse28.py hse28_resmaster.csv 
+        run: python3 hse28.py hse28_resmaster.csv 
 
       - name: Create a new repository for hse28_test.csv
         run: |
