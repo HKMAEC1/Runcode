@@ -2,7 +2,7 @@ name: Centaline CRE
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '20 02 * * *' 
+    - cron:  '30 02 * * *' 
 
 jobs:
   scheduled:
@@ -23,7 +23,7 @@ jobs:
         curl -O https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
     - name: Run the Python code
-      run: python3 Centaline CRE.py Centaline CRE.xlsx
+      run: python3 Centaline CRE.py CRE.xlsx
     - name: auto-push to github
       if: always()
       run: |
