@@ -1,4 +1,4 @@
-name: webscraping
+name: Centaline CRE
 on:
   workflow_dispatch:
   schedule:
