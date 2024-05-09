@@ -69,30 +69,19 @@ def scrape_data():
     
     return [d, retail_sales, retail_lease, office_sales, office_lease, factory_sales, factory_lease]
 
-def wait_until_target_time(target_hour, target_minute):
-    while True:
-        now = datetime.now().time()
-        target_time = dt_time(target_hour, target_minute)
-        if now >= target_time:
-            break
-        sys_time.sleep(60)  # Wait for 1 minute before checking again
+# Scrape data
+data = scrape_data()
 
-# Wait until 3 a.m. Hong Kong time
-wait_until_target_time(3, 0)
+# Load existing data from file
+try:
+    df = pd.read_excel("CRE.xlsx")
+except FileNotFoundError:
+    df = pd.DataFrame(columns=["Date", "Retail Sales", "Retail lease", "Office Sales", "Office lease", "Industrial Sales", "Industrial lease"])
 
-while True:
-    # Scrape data
-    data = scrape_data()
-    
-    # Load existing data from file
-    try:
-        df = pd.read_excel("CRE.xlsx")
-    except FileNotFoundError:
-        df = pd.DataFrame(columns=["Date", "Retail Sales", "Retail lease", "Office Sales", "Office lease", "Industrial Sales", "Industrial lease"])
-    
-    # Append new data to the dataframe
-    df = df.append(pd.Series(data, index=df.columns), ignore_index=True)
-    
-    # Save dataframe to file
-    df.to_excel("CRE.xlsx", sheet_name="sheet1", index=False)
-    
+# Append new data to the dataframe
+df = df.append(pd.Series(data, index=df.columns), ignore_index=True)
+
+# Save dataframe to file
+df.to_excel("CRE.xlsx", sheet_name="sheet1", index=False)
+
+print("Data appended successfully.")
