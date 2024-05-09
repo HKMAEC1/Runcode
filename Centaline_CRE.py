@@ -67,7 +67,7 @@ def scrape_data():
     return [d, retail_sales, retail_lease, office_sales, office_lease, factory_sales, factory_lease]
 
 # Scrape data
-data = scrape_data()
+data = [scrape_data()]
 
 # Load existing data from file
 try:
@@ -76,7 +76,7 @@ except FileNotFoundError:
     df = pd.DataFrame(columns=["Date", "Retail Sales", "Retail Lease", "Office Sales", "Office Lease", "Industrial Sales", "Industrial Lease"])
 
 # Append new data to the dataframe
-df = pd.concat([df, pd.Series(data, index=df.columns)], ignore_index=True)
+df = pd.concat([df, pd.DataFrame(data, columns=df.columns)], ignore_index=True)
 
 # Save dataframe to file
 df.to_excel("CRE.xlsx", sheet_name="sheet1", index=False)
