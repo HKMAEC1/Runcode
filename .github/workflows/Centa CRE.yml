@@ -2,7 +2,7 @@ name: Centaline CRE
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '30 02 * * *' 
+    - cron:  '54 02 * * *' 
 
 jobs:
   scheduled:
