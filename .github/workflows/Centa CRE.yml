@@ -2,7 +2,7 @@ name: webscraping
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '00 19 * * *' 
+    - cron:  '20 02 * * *' 
 
 jobs:
   scheduled:
@@ -23,7 +23,7 @@ jobs:
         curl -O https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
     - name: Run the Python code
-      run: python3 main.py Centaline_sale_lease.xlsx
+      run: python3 Centaline CRE.py Centaline CRE.xlsx
     - name: auto-push to github
       if: always()
       run: |
