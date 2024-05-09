@@ -4,61 +4,61 @@ import pandas as pd
 from datetime import datetime, time as dt_time
 import time as sys_time
 
-# Set webdriver options
+#set webdriver
 chrome_options = webdriver.chrome.options.Options()
 
 prefs = {
-    'download.extensions_to_open': 'xml',
-    'safebrowsing.enabled': True
+'download.extensions_to_open': 'xml',
+'safebrowsing.enabled': True
 }
-
-# Uncomment the below to let the program run in the background
+## Uncomment the below to let the program to run in background
 options = webdriver.ChromeOptions()
-options.add_experimental_option('prefs', prefs)
+options.add_experimental_option('prefs',prefs)
 options.add_argument("start-maximized")
 options.add_argument("--headless")
-
-options.add_argument("disable-infobars")
+# options.add_argument("disable-infobars")
 options.add_argument("--disable-extensions")
 options.add_argument("--safebrowsing-disable-download-protection")
 options.add_argument("safebrowsing-disable-extension-blacklist")
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
 def scrape_data():
     # Retail
     # Lease
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/lease/retail/'
     driver.get(url)
     retail_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
     
     # Sales
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/sale/retail/'
     driver.get(url)
     retail_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
     
     # Office
     # Lease
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/lease/office/'
     driver.get(url)
     office_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
     
     # Sales
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/sale/office/'
     driver.get(url)
     office_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
     
     # Factory
     # Lease
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/lease/industrial/'
     driver.get(url)
     factory_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
     
     # Sales
-    driver = webdriver.Chrome('/home/hkmard/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
     url = 'https://oir.centanet.com/sale/industrial/'
     driver.get(url)
     factory_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
