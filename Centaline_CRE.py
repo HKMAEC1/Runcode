@@ -60,7 +60,7 @@ def scrape_data():
     driver.get(url)
     factory_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
-    d = date.today()
+    d = date.today() + timedelta(days=1)
 
     driver.quit()  # Quit the webdriver to release resources
 
