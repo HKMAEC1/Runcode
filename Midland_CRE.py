@@ -72,7 +72,7 @@ def scrape_data():
     wait_for_page_load(driver)  # Wait for the page to load
     factory_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
     
-    d = datetime.now()
+    d = date.today() + timedelta(days=1)
     
     driver.quit()  # Quit the webdriver to release resources
     
