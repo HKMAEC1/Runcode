@@ -25,48 +25,57 @@ options.add_argument('--disable-dev-shm-usage')
 
 def scrape_data():
     def wait_for_page_load(driver):
-        sys_time.sleep(30)  # Wait for 10 seconds for the page to load
-        
-    # Retail Lease
+        sys_time.sleep(10)  # Wait for 10 seconds for the page to load
+
+    # Retail
+    # Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/shops/lease'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     retail_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    # Retail Sales
+    
+    # Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/shops/sale'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     retail_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    # Office Lease
+    
+    # Office
+    # Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/office/lease'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     office_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    # Office Sales
+    
+    # Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/office/sale'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     office_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    # Factory Lease
+    
+    # Factory
+    # Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/industrial/lease'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     factory_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    # Factory Sales
+    
+    # Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/industrial/sale'
     driver.get(url)
+    wait_for_page_load(driver)  # Wait for the page to load
     factory_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
-
-    d = date.today() + timedelta(days=1)
-
+    
+    d = datetime.now()
+    
     driver.quit()  # Quit the webdriver to release resources
-
+    
     return [d, retail_sales, retail_lease, office_sales, office_lease, factory_sales, factory_lease]
 
 # Scrape data
