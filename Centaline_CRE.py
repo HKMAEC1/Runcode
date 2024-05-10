@@ -26,39 +26,39 @@ options.add_argument('--disable-dev-shm-usage')
 def scrape_data():
     # Retail Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/shops/lease'
+    url = 'https://oir.centanet.com/lease/retail/'
     driver.get(url)
-    retail_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    retail_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     # Retail Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/shops/sale'
+    url = 'https://oir.centanet.com/sale/retail/'
     driver.get(url)
-    retail_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    retail_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     # Office Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/office/lease'
+    url = 'https://oir.centanet.com/lease/office/'
     driver.get(url)
-    office_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    office_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     # Office Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/office/sale'
+    url = 'https://oir.centanet.com/sale/office/'
     driver.get(url)
-    office_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    office_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     # Factory Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/industrial/lease'
+    url = 'https://oir.centanet.com/lease/industrial/'
     driver.get(url)
-    factory_lease = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    factory_lease = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     # Factory Sales
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
-    url = 'https://www.midlandici.com.hk/ics/property/find/industrial/sale'
+    url = 'https://oir.centanet.com/sale/industrial/'
     driver.get(url)
-    factory_sales = driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/div[1]/div[1]/span').text
+    factory_sales = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text
 
     d = date.today() + timedelta(days=1)
 
@@ -71,7 +71,7 @@ data = [scrape_data()]
 
 # Load existing data from file
 try:
-    df = pd.read_excel("Mid_CRE.xlsx")
+    df = pd.read_excel("CRE.xlsx")
 except FileNotFoundError:
     df = pd.DataFrame(columns=["Date", "Retail Sales", "Retail Lease", "Office Sales", "Office Lease", "Industrial Sales", "Industrial Lease"])
 
@@ -82,6 +82,6 @@ df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%Y-%m-%d")
 df = pd.concat([df, pd.DataFrame(data, columns=df.columns)], ignore_index=True)
 
 # Save dataframe to file
-df.to_excel("Mid_CRE.xlsx", sheet_name="sheet1", index=False)
+df.to_excel("CRE.xlsx", sheet_name="sheet1", index=False)
 
 print("Data appended successfully.")
