@@ -24,6 +24,9 @@ options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
 def scrape_data():
+    def wait_for_page_load(driver):
+        sys_time.sleep(30)  # Wait for 10 seconds for the page to load
+        
     # Retail Lease
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://www.midlandici.com.hk/ics/property/find/shops/lease'
