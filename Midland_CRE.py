@@ -2,7 +2,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import date, datetime, timedelta
-import time
+import time as sys_time
 
 # Set webdriver options
 chrome_options = webdriver.chrome.options.Options()
