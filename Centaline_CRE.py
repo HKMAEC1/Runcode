@@ -75,6 +75,9 @@ try:
 except FileNotFoundError:
     df = pd.DataFrame(columns=["Date", "Retail Sales", "Retail Lease", "Office Sales", "Office Lease", "Industrial Sales", "Industrial Lease"])
 
+# Convert the "Date" column to the desired format
+df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%Y-%m-%d")
+
 # Append new data to the dataframe
 df = pd.concat([df, pd.DataFrame(data, columns=df.columns)], ignore_index=True)
 
