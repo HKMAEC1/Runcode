@@ -1,4 +1,4 @@
-name: Centaline CRE
+name: Mid CRE
 on:
   workflow_dispatch:
   schedule:
@@ -23,7 +23,7 @@ jobs:
         curl -O https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
     - name: Run the Python code
-      run: python3 Centaline_CRE.py CRE.xlsx
+      run: python3 Midland_CRE.py Mid_CRE.xlsx
     - name: auto-push to github
       if: always()
       run: |
