@@ -333,7 +333,7 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS044&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    ISI = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text 
+    ISI = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span').text 
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS043&usages=Retail'
