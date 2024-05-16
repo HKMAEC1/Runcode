@@ -25,7 +25,7 @@ options.add_argument('--disable-dev-shm-usage')
 
 def scrape_data():
     def wait_for_page_load(driver):
-        sys_time.sleep(5)  # Wait for 10 seconds for the page to load
+        sys_time.sleep(10)  # Wait for 10 seconds for the page to load
 
     # Retail
     # Lease
