@@ -342,7 +342,7 @@ data = [scrape_data()]
 try:
     df = pd.read_excel("Mid_Retail_district.xlsx")
 except FileNotFoundError:
-    df = pd.DataFrame(columns=["Date", "Retail Sales", "Central", "Western District", "Sheung Wan", "Wan Chai", "Causeway Bay", "Tin Hau", "Happy Valley", "Tai Hang", "North Point", "Shau Kei Wan", "Quarry Bay", "Chai Wan", "Island South", "Aberdeen", "Mongkok", "Tsim Sha Tsui", "Jordan", "Yau Ma Tei", "Tai Kok Tsui", "Tsim Sha Tsui East", "Sham Shui Po", "Cheung Sha Wan", "Mei Foo", "Kowloon City", "To KWa Wan", "Hung Hom", "Kai Tak", "San Po Kong", "Wong Tai Sin", "Kwun Tong", "Ngau Tau Kok", "Kowloon Bay", "Yau Tong", "Kwai Chung", "Tsing Yi", "Tsuen Wan", "Tuen Man", "Yuen Long", "Tin Shui Wai", "Hung Shui Kiu", "Sheung Shui", "Fanling", "Tai Po", "Sha Tin", "Tai Wai", "Ma On Shan", "Tseung Kwan O", "Sai Kung", "Island"])
+    df = pd.DataFrame(columns=["Date", "Retail lease", "Central", "Western District", "Sheung Wan", "Wan Chai", "Causeway Bay", "Tin Hau", "Happy Valley", "Tai Hang", "North Point", "Shau Kei Wan", "Quarry Bay", "Chai Wan", "Island South", "Aberdeen", "Mongkok", "Tsim Sha Tsui", "Jordan", "Yau Ma Tei", "Tai Kok Tsui", "Tsim Sha Tsui East", "Sham Shui Po", "Cheung Sha Wan", "Mei Foo", "Kowloon City", "To KWa Wan", "Hung Hom", "Kai Tak", "San Po Kong", "Wong Tai Sin", "Kwun Tong", "Ngau Tau Kok", "Kowloon Bay", "Yau Tong", "Kwai Chung", "Tsing Yi", "Tsuen Wan", "Tuen Man", "Yuen Long", "Tin Shui Wai", "Hung Shui Kiu", "Sheung Shui", "Fanling", "Tai Po", "Sha Tin", "Tai Wai", "Ma On Shan", "Tseung Kwan O", "Sai Kung", "Island"])
 
 # Convert the "Date" column to the desired format
 df["Date"] = pd.to_datetime(df["Date"]).dt.strftime("%Y-%m-%d")
