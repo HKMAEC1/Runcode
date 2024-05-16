@@ -23,12 +23,12 @@ jobs:
         curl -O https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
     - name: Run the Python code
-      run: python3 Midland_Retail_D.py Mid_Retail_district.xlsx
+      run: python3 Centaline_Retail_D.py Cen_Retail_district.xlsx
     - name: auto-push to github
       if: always()
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add Mid_Retail_district.xlsx
+        git add Cen_Retail_district.xlsx
         git diff-index --quiet HEAD || git commit -am "archived"
         git push
