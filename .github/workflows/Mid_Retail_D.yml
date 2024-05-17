@@ -2,7 +2,7 @@ name: Mid Retail Dis
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '00 19 * * *' 
+    - cron:  '55 19 * * *' 
 
 jobs:
   scheduled:
