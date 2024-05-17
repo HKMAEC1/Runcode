@@ -55,8 +55,11 @@ def scrape_data():
     xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
     try:
         SHW = driver.find_element_by_xpath(xpath1).text
-    except NoSuchElementException:
-        SHW = driver.find_element_by_xpath(xpath2).text
+    except Exception as e:
+        if 'no such element' in str(e).lower():
+            SHW = driver.find_element_by_xpath(xpath2).text
+        else:
+            raise    
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS006&usages=Retail'
@@ -90,8 +93,11 @@ def scrape_data():
     xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
     try:
         TAS = driver.find_element_by_xpath(xpath1).text
-    except NoSuchElementException:
-        TAS = driver.find_element_by_xpath(xpath2).text
+    except Exception as e:
+        if 'no such element' in str(e).lower():
+            TAS = driver.find_element_by_xpath(xpath2).text
+        else:
+            raise
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS008&usages=Retail'
@@ -347,8 +353,11 @@ def scrape_data():
     xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
     try:
         ISI = driver.find_element_by_xpath(xpath1).text
-    except NoSuchElementException:
-        ISI = driver.find_element_by_xpath(xpath2).text
+    except Exception as e:
+        if 'no such element' in str(e).lower():
+            ISI = driver.find_element_by_xpath(xpath2).text
+        else:
+            raise
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS043&usages=Retail'
