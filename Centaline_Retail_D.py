@@ -187,7 +187,7 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS016&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    SSP = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div/div[1]/h1/span').text 
+    SSP = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span').text 
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS015&usages=Retail'
