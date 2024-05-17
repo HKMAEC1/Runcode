@@ -51,7 +51,12 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS003&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    SHW = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span').text 
+    xpath1 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span'
+    xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
+    try:
+        SHW = driver.find_element_by_xpath(xpath1).text
+    except NoSuchElementException:
+        SHW = driver.find_element_by_xpath(xpath2).text
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS006&usages=Retail'
@@ -81,7 +86,12 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS049&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    TAS = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span').text 
+    xpath1 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span'
+    xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
+    try:
+        TAS = driver.find_element_by_xpath(xpath1).text
+    except NoSuchElementException:
+        TAS = driver.find_element_by_xpath(xpath2).text
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS008&usages=Retail'
@@ -333,7 +343,12 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS044&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    ISI = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span').text 
+    xpath1 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span'
+    xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
+    try:
+        ISI = driver.find_element_by_xpath(xpath1).text
+    except NoSuchElementException:
+        ISI = driver.find_element_by_xpath(xpath2).text
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS043&usages=Retail'
