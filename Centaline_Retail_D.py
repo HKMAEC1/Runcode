@@ -187,7 +187,15 @@ def scrape_data():
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS016&usages=Retail'
     driver.get(url)
     wait_for_page_load(driver)  # Wait for the page to load
-    SSP = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span').text 
+    xpath1 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div/div[2]/div[1]/h1/span'
+    xpath2 = '//*[@id="__layout"]/div/div[1]/div[1]/div[4]/div[1]/section/div/h1/span'
+    try:
+        SSP = driver.find_element_by_xpath(xpath1).text
+    except Exception as e:
+        if 'no such element' in str(e).lower():
+            SSP = driver.find_element_by_xpath(xpath2).text
+        else:
+            raise
 
     driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
     url = 'https://oir.centanet.com/en/lease/search/?districts=WS015&usages=Retail'
