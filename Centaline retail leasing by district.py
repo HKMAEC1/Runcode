@@ -17,10 +17,6 @@ import pandas as pd
 import schedule
 import time
 
-#%% Change directory
-os.chdir(r"C:\Users\kayt\Desktop\Try\Retail by district")
-
-
 #%% Set webdriver
 chrome_options = webdriver.chrome.options.Options()
 
@@ -40,7 +36,7 @@ options.add_argument("safebrowsing-disable-extension-blacklist")
 
 
 #%% Web scraping
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
+driver = webdriver.Chrome('/usr/bin/chromedriver', options=options)
 driver.get('https://oir.centanet.com/lease/retail/')
 
 Data = []
