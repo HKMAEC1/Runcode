@@ -6,7 +6,7 @@ Created on Tue May 14 23:16:00 2024
 """
 
 #%% Import neccessary packages
-import os
+#import os
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
