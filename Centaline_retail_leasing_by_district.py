@@ -1,37 +1,29 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 14 23:16:00 2024
-
-@author: kayt
-"""
-
-#%% Import neccessary packages
-#import os
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.keys import Keys
-from datetime import datetime, date, timedelta
+from bs4 import BeautifulSoup
 import pandas as pd
+from datetime import date, datetime, timedelta
 import time
 
-#%% Set webdriver
+# Set webdriver options
 chrome_options = webdriver.chrome.options.Options()
 
 prefs = {
-'download.extensions_to_open': 'xml',
-'safebrowsing.enabled': True
+    'download.extensions_to_open': 'xml',
+    'safebrowsing.enabled': True
 }
-## Uncomment the below to let the program to run in background
+## Uncomment the below to let the program run in the background
 options = webdriver.ChromeOptions()
-options.add_experimental_option('prefs',prefs)
+options.add_experimental_option('prefs', prefs)
 options.add_argument("start-maximized")
-#options.add_argument("--headless")  
-options.add_argument("disable-infobars")
+options.add_argument("--headless")
+# options.add_argument("disable-infobars")
 options.add_argument("--disable-extensions")
 options.add_argument("--safebrowsing-disable-download-protection")
 options.add_argument("safebrowsing-disable-extension-blacklist")
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
 
 #%% Web scraping
