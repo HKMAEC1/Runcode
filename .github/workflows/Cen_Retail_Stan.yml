@@ -29,6 +29,6 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add Mid_Retail_district.xlsx
+        git add Centaline_retail.xlsx
         git diff-index --quiet HEAD || git commit -am "archived"
         git push
