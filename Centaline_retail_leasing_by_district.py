@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, date, timedelta
 import pandas as pd
-import schedule
+#import schedule
 import time
 
 #%% Set webdriver
