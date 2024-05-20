@@ -1,8 +1,8 @@
-name: Mid Retail Dis
+name: Mid Retail Dis Stan
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '00 19 * * *' 
+    - cron:  '30 20 * * *' 
 
 jobs:
   scheduled:
@@ -23,7 +23,7 @@ jobs:
         curl -O https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
     - name: Run the Python code
-      run: python3 Midland_Retail_D.py Mid_Retail_district.xlsx
+      run: python3 Centaline retail leasing by district.py Centaline_retail.xlsx
     - name: auto-push to github
       if: always()
       run: |
