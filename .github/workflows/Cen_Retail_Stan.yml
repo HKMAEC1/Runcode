@@ -1,4 +1,4 @@
-name: Mid Retail Dis Stan
+name: Cen Retail Dis Stan
 on:
   workflow_dispatch:
   schedule:
