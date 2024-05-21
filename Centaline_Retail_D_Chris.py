@@ -39,7 +39,7 @@ def scrape_data():
 
     #HAV
     url048 = 'https://oir.centanet.com/en/lease/search/?districts=WS048&usages=Retail'
-    HAV = retry_scrape(url046, max_retries, 'h1', 'list_res_num')
+    HAV = retry_scrape(url048, max_retries, 'h1', 'list_res_num')
 
     #TAS
     url049 = 'https://oir.centanet.com/en/lease/search/?districts=WS049&usages=Retail'
