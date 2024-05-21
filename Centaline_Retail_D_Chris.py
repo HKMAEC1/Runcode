@@ -55,7 +55,7 @@ def scrape_data():
 
     #QUB
     url009 = 'https://oir.centanet.com/en/lease/search/?districts=WS009&usages=Retail'
-    QUB = = retry_scrape(url009, max_retries, 'h1', 'list_res_num')
+    QUB = retry_scrape(url009, max_retries, 'h1', 'list_res_num')
 
     #CAB
     url007 = 'https://oir.centanet.com/en/lease/search/?districts=WS007&usages=Retail'
