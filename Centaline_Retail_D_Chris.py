@@ -5,430 +5,235 @@ import time
 import pandas as pd
 
 def scrape_data():
+
+    max_retries = 5
+    
     #Retail lease
     url = 'https://oir.centanet.com/lease/retail/'
-    time.sleep(10)
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    retail_lease = span_element.text.replace(',', '')
+    retail_lease = retry_scrape(url, max_retries, 'h1', 'list_res_num')
 
     #CEN
     url004 = 'https://oir.centanet.com/en/lease/search/?districts=WS004&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url004)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    CEN = span_element.text.replace(',', '')
+    CEN = retry_scrape(url004, max_retries, 'h1', 'list_res_num')
 
     #WES
     url001 = 'https://oir.centanet.com/en/lease/search/?districts=WS001&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url001)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    WES = span_element.text.replace(',', '')
+    WES = retry_scrape(url001, max_retries, 'h1', 'list_res_num')
 
     #SHW
     url003 = 'https://oir.centanet.com/en/lease/search/?districts=WS003&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url003)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SHW = span_element.text.replace(',', '')
+    SHW = retry_scrape(url003, max_retries, 'h1', 'list_res_num')
 
     #WAC
     url006 = 'https://oir.centanet.com/en/lease/search/?districts=WS006&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url006)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    WAC = span_element.text.replace(',', '')
+    WAC = retry_scrape(url006, max_retries, 'h1', 'list_res_num')
 
     #CHW
     url012 = 'https://oir.centanet.com/en/lease/search/?districts=WS012&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url012)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    CHW = span_element.text.replace(',', '')
+    CHW = retry_scrape(url012, max_retries, 'h1', 'list_res_num')
 
     #TIH
     url046 = 'https://oir.centanet.com/en/lease/search/?districts=WS046&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url046)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TIH = span_element.text.replace(',', '')
+    TIH = retry_scrape(url046, max_retries, 'h1', 'list_res_num')
 
 
     #HAV
     url048 = 'https://oir.centanet.com/en/lease/search/?districts=WS048&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url048)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    HAV = span_element.text.replace(',', '')
-
+    HAV = retry_scrape(url046, max_retries, 'h1', 'list_res_num')
 
     #TAS
     url049 = 'https://oir.centanet.com/en/lease/search/?districts=WS049&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url049)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TAS = span_element.text.replace(',', '')
-
+    TAS = retry_scrape(url049, max_retries, 'h1', 'list_res_num')
 
     #NOP
     url008 = 'https://oir.centanet.com/en/lease/search/?districts=WS008&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url008)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    NOP = span_element.text.replace(',', '')
+    NOP = retry_scrape(url008, max_retries, 'h1', 'list_res_num')
 
     #SKW
     url011 = 'https://oir.centanet.com/en/lease/search/?districts=WS011&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url011)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SKW = span_element.text.replace(',', '')
+    SKW = retry_scrape(url011, max_retries, 'h1', 'list_res_num')
 
     #QUB
     url009 = 'https://oir.centanet.com/en/lease/search/?districts=WS009&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url009)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    QUB = span_element.text.replace(',', '')
+    QUB = = retry_scrape(url009, max_retries, 'h1', 'list_res_num')
 
     #CAB
     url007 = 'https://oir.centanet.com/en/lease/search/?districts=WS007&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url007)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    CAB = span_element.text.replace(',', '')
+    CAB = retry_scrape(url007, max_retries, 'h1', 'list_res_num')
 
     #SOU
     url002 = 'https://oir.centanet.com/en/lease/search/?districts=WS002&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url002)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SOU = span_element.text.replace(',', '')
+    SOU = retry_scrape(url002, max_retries, 'h1', 'list_res_num')
 
 
     #ADM
     url005 = 'https://oir.centanet.com/en/lease/search/?districts=WS005&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url005)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    ADM = span_element.text.replace(',', '')
+    ADM = retry_scrape(url005, max_retries, 'h1', 'list_res_num')
 
 
     #SSW
     url013 = 'https://oir.centanet.com/en/lease/search/?districts=WS013&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url013)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SSW = span_element.text.replace(',', '')
+    SSW = retry_scrape(url013, max_retries, 'h1', 'list_res_num')
 
     #SWH
     url010 = 'https://oir.centanet.com/en/lease/search/?districts=WS010&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url010)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SWH = span_element.text.replace(',', '')
+    SWH = retry_scrape(url010, max_retries, 'h1', 'list_res_num')
 
     #ABE
     url047 = 'https://oir.centanet.com/en/lease/search/?districts=WS047&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url047)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    ABE = span_element.text.replace(',', '')
+    ABE = retry_scrape(url047, max_retries, 'h1', 'list_res_num')
 
     #MOK
     url020 = 'https://oir.centanet.com/en/lease/search/?districts=WS020&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url020)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    MOK = span_element.text.replace(',', '')
+    MOK = retry_scrape(url020, max_retries, 'h1', 'list_res_num')
 
     #TST
     url023 = 'https://oir.centanet.com/en/lease/search/?districts=WS023&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url023)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TST = span_element.text.replace(',', '')
+    TST = retry_scrape(url023, max_retries, 'h1', 'list_res_num')
 
     #JOR
     url022 = 'https://oir.centanet.com/en/lease/search/?districts=WS022&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url022)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    JOR = span_element.text.replace(',', '')
+    JOR = retry_scrape(url022, max_retries, 'h1', 'list_res_num')
 
     #YMT
     url021 = 'https://oir.centanet.com/en/lease/search/?districts=WS021&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url021)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    YMT = span_element.text.replace(',', '')
+    YMT = retry_scrape(url021, max_retries, 'h1', 'list_res_num')
 
     #TKT
     url018 = 'https://oir.centanet.com/en/lease/search/?districts=WS018&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url018)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TKT = span_element.text.replace(',', '')
+    TKT = retry_scrape(url018, max_retries, 'h1', 'list_res_num')
 
     #SSP
     url016 = 'https://oir.centanet.com/en/lease/search/?districts=WS016&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url016)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SSP = span_element.text.replace(',', '')
+    SSP = retry_scrape(url016, max_retries, 'h1', 'list_res_num')
 
     #CSW
     url015 = 'https://oir.centanet.com/en/lease/search/?districts=WS015&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url015)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    CSW = span_element.text.replace(',', '')
+    CSW = retry_scrape(url015, max_retries, 'h1', 'list_res_num')
 
     #MEF
     url014 = 'https://oir.centanet.com/en/lease/search/?districts=WS014&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url014)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    MEF = span_element.text.replace(',', '')
+    MEF = retry_scrape(url014, max_retries, 'h1', 'list_res_num')
 
     #KOC
     url025 = 'https://oir.centanet.com/en/lease/search/?districts=WS025&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url025)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    KOC = span_element.text.replace(',', '')
+    KOC = retry_scrape(url025, max_retries, 'h1', 'list_res_num')
 
     #TKW
     url026 = 'https://oir.centanet.com/en/lease/search/?districts=WS026&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url026)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TKW = span_element.text.replace(',', '')
+    TKW = retry_scrape(url026, max_retries, 'h1', 'list_res_num')
 
     #HUH
     url027 = 'https://oir.centanet.com/en/lease/search/?districts=WS027&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url027)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    HUH = span_element.text.replace(',', '')
+    HUH = retry_scrape(url027, max_retries, 'h1', 'list_res_num')
 
     #SPK
     url030 = 'https://oir.centanet.com/en/lease/search/?districts=WS030&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url030)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SPK = span_element.text.replace(',', '')
+    SPK = retry_scrape(url030, max_retries, 'h1', 'list_res_num')
 
     #WTS
     url029 = 'https://oir.centanet.com/en/lease/search/?districts=WS029&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url029)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    WTS = span_element.text.replace(',', '')
+    WTS = retry_scrape(url029, max_retries, 'h1', 'list_res_num')
 
     #KWT
     url032 = 'https://oir.centanet.com/en/lease/search/?districts=WS032&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url032)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    KWT = span_element.text.replace(',', '')
+    KWT = retry_scrape(url032, max_retries, 'h1', 'list_res_num')
 
     #KOB
     url031 = 'https://oir.centanet.com/en/lease/search/?districts=WS031&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url031)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    KOB = span_element.text.replace(',', '')
+    KOB = retry_scrape(url031, max_retries, 'h1', 'list_res_num')
 
     #YMT
     url021 = 'https://oir.centanet.com/en/lease/search/?districts=WS021&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url021)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    YMT = span_element.text.replace(',', '')
+    YMT = retry_scrape(url021, max_retries, 'h1', 'list_res_num')
 
     #PRI
     url019 = 'https://oir.centanet.com/en/lease/search/?districts=WS019&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url019)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    PRI = span_element.text.replace(',', '')
+    PRI = retry_scrape(url019, max_retries, 'h1', 'list_res_num')
 
     #HMT
     url045 = 'https://oir.centanet.com/en/lease/search/?districts=WS045&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url045)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    HMT = span_element.text.replace(',', '')
+    HMT = retry_scrape(url045, max_retries, 'h1', 'list_res_num')
 
     #KWC
     url042 = 'https://oir.centanet.com/en/lease/search/?districts=WS042&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url042)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    KWC = span_element.text.replace(',', '')
+    KWC = retry_scrape(url042, max_retries, 'h1', 'list_res_num')
 
     #TSY
     url041 = 'https://oir.centanet.com/en/lease/search/?districts=WS041&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url041)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TSY = span_element.text.replace(',', '')
+    TSY = retry_scrape(url041, max_retries, 'h1', 'list_res_num')
 
     #TSW
     url040 = 'https://oir.centanet.com/en/lease/search/?districts=WS040&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url040)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TSW = span_element.text.replace(',', '')
+    TSW = retry_scrape(url040, max_retries, 'h1', 'list_res_num')
 
     #TUM
     url039 = 'https://oir.centanet.com/en/lease/search/?districts=WS039&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url039)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TUM = span_element.text.replace(',', '')
+    TUM = retry_scrape(url039, max_retries, 'h1', 'list_res_num')
 
     #YUL
     url038 = 'https://oir.centanet.com/en/lease/search/?districts=WS038&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url038)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    YUL = span_element.text.replace(',', '')
+    YUL = retry_scrape(url038, max_retries, 'h1', 'list_res_num')
 
     #TIS
     url050 = 'https://oir.centanet.com/en/lease/search/?districts=WS050&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url050)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TIS = span_element.text.replace(',', '')
+    TIS = retry_scrape(url050, max_retries, 'h1', 'list_res_num')
 
     #SHS
     url051 = 'https://oir.centanet.com/en/lease/search/?districts=WS051&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url051)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SHS = span_element.text.replace(',', '')
+    SHS = retry_scrape(url051, max_retries, 'h1', 'list_res_num')
 
     #FAN
     url052 = 'https://oir.centanet.com/en/lease/search/?districts=WS052&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url052)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    FAN = span_element.text.replace(',', '')
+    FAN = retry_scrape(url052, max_retries, 'h1', 'list_res_num')
 
     #TAP
     url034 = 'https://oir.centanet.com/en/lease/search/?districts=WS034&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url034)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TAP = span_element.text.replace(',', '')
+    TAP = retry_scrape(url034, max_retries, 'h1', 'list_res_num')
 
     #SHT
     url035 = 'https://oir.centanet.com/en/lease/search/?districts=WS035&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url035)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SHT = span_element.text.replace(',', '')
+    SHT = retry_scrape(url035, max_retries, 'h1', 'list_res_num')
 
     #TAW
     url053 = 'https://oir.centanet.com/en/lease/search/?districts=WS053&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url053)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TAW = span_element.text.replace(',', '')
+    TAW = retry_scrape(url053, max_retries, 'h1', 'list_res_num')
 
     #MOS
     url054 = 'https://oir.centanet.com/en/lease/search/?districts=WS054&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url054)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    MOS = span_element.text.replace(',', '')
+    MOS = retry_scrape(url054, max_retries, 'h1', 'list_res_num')
 
     #TKO
     url037 = 'https://oir.centanet.com/en/lease/search/?districts=WS037&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url037)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    TKO = span_element.text.replace(',', '')
+    TKO = retry_scrape(url037, max_retries, 'h1', 'list_res_num')
 
     #SAK
     url036 = 'https://oir.centanet.com/en/lease/search/?districts=WS036&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url036)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    SAK = span_element.text.replace(',', '')
+    SAK = retry_scrape(url036, max_retries, 'h1', 'list_res_num')
 
     #ISI
     url044 = 'https://oir.centanet.com/en/lease/search/?districts=WS044&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url044)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    ISI = span_element.text.replace(',', '')
+    ISI = retry_scrape(url044, max_retries, 'h1', 'list_res_num')
 
     #LAK
     url043 = 'https://oir.centanet.com/en/lease/search/?districts=WS043&usages=Retail'
-    time.sleep(10)
-    response = requests.get(url043)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    span_element = soup.find('h1', class_='list_res_num').find('span')
-    LAK = span_element.text.replace(',', '')
+    LAK = retry_scrape(url043, max_retries, 'h1', 'list_res_num')
     
     d = date.today() + timedelta(days=1)
     
     return [d, retail_lease, CEN, WES, SHW, WAC, CAB, TIH, HAV, TAS, NOP, SKW, QUB, CHW, SOU, ADM, SSW, SWH, ABE, MOK, TST, JOR, YMT, TKT, SSP, CSW, MEF, KOC, TKW, HUH, SPK, WTS, KWT, KOB, YMT, PRI, HMT, KWC, TSY, TSW, TUM, YUL, TIS, SHS, FAN, TAP, SHT, TAW, MOS, TKO, SAK, ISI, LAK]
+
+def retry_scrape(url, max_retries, tag, class_name):
+        retries = 0
+    while retries < max_retries:
+        time.sleep(10)  # Add a delay to avoid overwhelming the server
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        span_element = soup.find(tag, class_=class_name)
+        if span_element:
+            return span_element.find('span').text.replace(',', '')
+        retries += 1
+    return 'NA'
 
 # Scrape data
 data = [scrape_data()]
