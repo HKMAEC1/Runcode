@@ -7,7 +7,7 @@ import pandas as pd
 def scrape_data():
     #Retail lease
     url = 'https://oir.centanet.com/lease/retail/'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -15,7 +15,7 @@ def scrape_data():
 
     #CEN
     url004 = 'https://oir.centanet.com/en/lease/search/?districts=WS004&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url004)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -23,7 +23,7 @@ def scrape_data():
 
     #WES
     url001 = 'https://oir.centanet.com/en/lease/search/?districts=WS001&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url001)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -31,7 +31,7 @@ def scrape_data():
 
     #SHW
     url003 = 'https://oir.centanet.com/en/lease/search/?districts=WS003&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url003)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -39,7 +39,7 @@ def scrape_data():
 
     #WAC
     url006 = 'https://oir.centanet.com/en/lease/search/?districts=WS006&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url006)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -47,7 +47,7 @@ def scrape_data():
 
     #CHW
     url012 = 'https://oir.centanet.com/en/lease/search/?districts=WS012&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url012)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -55,7 +55,7 @@ def scrape_data():
 
     #TIH
     url046 = 'https://oir.centanet.com/en/lease/search/?districts=WS046&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url046)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -64,7 +64,7 @@ def scrape_data():
 
     #HAV
     url048 = 'https://oir.centanet.com/en/lease/search/?districts=WS048&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url048)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -73,7 +73,7 @@ def scrape_data():
 
     #TAS
     url049 = 'https://oir.centanet.com/en/lease/search/?districts=WS049&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url049)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -82,7 +82,7 @@ def scrape_data():
 
     #NOP
     url008 = 'https://oir.centanet.com/en/lease/search/?districts=WS008&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url008)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -90,7 +90,7 @@ def scrape_data():
 
     #SKW
     url011 = 'https://oir.centanet.com/en/lease/search/?districts=WS011&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url011)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -98,7 +98,7 @@ def scrape_data():
 
     #QUB
     url009 = 'https://oir.centanet.com/en/lease/search/?districts=WS009&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url009)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -106,7 +106,7 @@ def scrape_data():
 
     #CAB
     url007 = 'https://oir.centanet.com/en/lease/search/?districts=WS007&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url007)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -114,7 +114,7 @@ def scrape_data():
 
     #SOU
     url002 = 'https://oir.centanet.com/en/lease/search/?districts=WS002&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url002)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -123,7 +123,7 @@ def scrape_data():
 
     #ADM
     url005 = 'https://oir.centanet.com/en/lease/search/?districts=WS005&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url005)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -132,7 +132,7 @@ def scrape_data():
 
     #SSW
     url013 = 'https://oir.centanet.com/en/lease/search/?districts=WS013&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url013)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -140,7 +140,7 @@ def scrape_data():
 
     #SWH
     url010 = 'https://oir.centanet.com/en/lease/search/?districts=WS010&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url010)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -148,7 +148,7 @@ def scrape_data():
 
     #ABE
     url047 = 'https://oir.centanet.com/en/lease/search/?districts=WS047&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url047)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -156,7 +156,7 @@ def scrape_data():
 
     #MOK
     url020 = 'https://oir.centanet.com/en/lease/search/?districts=WS020&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url020)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -164,7 +164,7 @@ def scrape_data():
 
     #TST
     url023 = 'https://oir.centanet.com/en/lease/search/?districts=WS023&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url023)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -172,7 +172,7 @@ def scrape_data():
 
     #JOR
     url022 = 'https://oir.centanet.com/en/lease/search/?districts=WS022&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url022)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -180,7 +180,7 @@ def scrape_data():
 
     #YMT
     url021 = 'https://oir.centanet.com/en/lease/search/?districts=WS021&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url021)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -188,7 +188,7 @@ def scrape_data():
 
     #TKT
     url018 = 'https://oir.centanet.com/en/lease/search/?districts=WS018&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url018)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -196,7 +196,7 @@ def scrape_data():
 
     #SSP
     url016 = 'https://oir.centanet.com/en/lease/search/?districts=WS016&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url016)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -204,7 +204,7 @@ def scrape_data():
 
     #CSW
     url015 = 'https://oir.centanet.com/en/lease/search/?districts=WS015&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url015)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -212,7 +212,7 @@ def scrape_data():
 
     #MEF
     url014 = 'https://oir.centanet.com/en/lease/search/?districts=WS014&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url014)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -220,7 +220,7 @@ def scrape_data():
 
     #KOC
     url025 = 'https://oir.centanet.com/en/lease/search/?districts=WS025&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url025)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -228,7 +228,7 @@ def scrape_data():
 
     #TKW
     url026 = 'https://oir.centanet.com/en/lease/search/?districts=WS026&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url026)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -236,7 +236,7 @@ def scrape_data():
 
     #HUH
     url027 = 'https://oir.centanet.com/en/lease/search/?districts=WS027&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url027)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -244,7 +244,7 @@ def scrape_data():
 
     #SPK
     url030 = 'https://oir.centanet.com/en/lease/search/?districts=WS030&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url030)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -252,7 +252,7 @@ def scrape_data():
 
     #WTS
     url029 = 'https://oir.centanet.com/en/lease/search/?districts=WS029&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url029)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -260,7 +260,7 @@ def scrape_data():
 
     #KWT
     url032 = 'https://oir.centanet.com/en/lease/search/?districts=WS032&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url032)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -268,7 +268,7 @@ def scrape_data():
 
     #KOB
     url031 = 'https://oir.centanet.com/en/lease/search/?districts=WS031&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url031)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -276,7 +276,7 @@ def scrape_data():
 
     #YMT
     url021 = 'https://oir.centanet.com/en/lease/search/?districts=WS021&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url021)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -284,7 +284,7 @@ def scrape_data():
 
     #PRI
     url019 = 'https://oir.centanet.com/en/lease/search/?districts=WS019&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url019)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -292,7 +292,7 @@ def scrape_data():
 
     #HMT
     url045 = 'https://oir.centanet.com/en/lease/search/?districts=WS045&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url045)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -300,7 +300,7 @@ def scrape_data():
 
     #KWC
     url042 = 'https://oir.centanet.com/en/lease/search/?districts=WS042&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url042)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -308,7 +308,7 @@ def scrape_data():
 
     #TSY
     url041 = 'https://oir.centanet.com/en/lease/search/?districts=WS041&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url041)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -316,7 +316,7 @@ def scrape_data():
 
     #TSW
     url040 = 'https://oir.centanet.com/en/lease/search/?districts=WS040&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url040)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -324,7 +324,7 @@ def scrape_data():
 
     #TUM
     url039 = 'https://oir.centanet.com/en/lease/search/?districts=WS039&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url039)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -332,7 +332,7 @@ def scrape_data():
 
     #YUL
     url038 = 'https://oir.centanet.com/en/lease/search/?districts=WS038&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url038)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -340,7 +340,7 @@ def scrape_data():
 
     #TIS
     url050 = 'https://oir.centanet.com/en/lease/search/?districts=WS050&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url050)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -348,7 +348,7 @@ def scrape_data():
 
     #SHS
     url051 = 'https://oir.centanet.com/en/lease/search/?districts=WS051&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url051)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -356,7 +356,7 @@ def scrape_data():
 
     #FAN
     url052 = 'https://oir.centanet.com/en/lease/search/?districts=WS052&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url052)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -364,7 +364,7 @@ def scrape_data():
 
     #TAP
     url034 = 'https://oir.centanet.com/en/lease/search/?districts=WS034&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url034)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -372,7 +372,7 @@ def scrape_data():
 
     #SHT
     url035 = 'https://oir.centanet.com/en/lease/search/?districts=WS035&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url035)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -380,7 +380,7 @@ def scrape_data():
 
     #TAW
     url053 = 'https://oir.centanet.com/en/lease/search/?districts=WS053&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url053)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -388,7 +388,7 @@ def scrape_data():
 
     #MOS
     url054 = 'https://oir.centanet.com/en/lease/search/?districts=WS054&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url054)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -396,7 +396,7 @@ def scrape_data():
 
     #TKO
     url037 = 'https://oir.centanet.com/en/lease/search/?districts=WS037&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url037)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -404,7 +404,7 @@ def scrape_data():
 
     #SAK
     url036 = 'https://oir.centanet.com/en/lease/search/?districts=WS036&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url036)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -412,7 +412,7 @@ def scrape_data():
 
     #ISI
     url044 = 'https://oir.centanet.com/en/lease/search/?districts=WS044&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url044)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
@@ -420,7 +420,7 @@ def scrape_data():
 
     #LAK
     url043 = 'https://oir.centanet.com/en/lease/search/?districts=WS043&usages=Retail'
-    time.sleep(5)
+    time.sleep(10)
     response = requests.get(url043)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
