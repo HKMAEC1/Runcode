@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import date, datetime, timedelta
 import time
+import pandas as pd
 
 def scrape_data():
     #Retail lease
