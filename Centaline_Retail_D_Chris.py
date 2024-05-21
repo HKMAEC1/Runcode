@@ -259,9 +259,9 @@ def scrape_data():
     WTS = span_element.text.replace(',', '')
 
     #KWT
-    url024 = 'https://oir.centanet.com/en/lease/search/?districts=WS024&usages=Retail'
+    url032 = 'https://oir.centanet.com/en/lease/search/?districts=WS032&usages=Retail'
     time.sleep(5)
-    response = requests.get(url024)
+    response = requests.get(url032)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
     KWT = span_element.text.replace(',', '')
@@ -473,7 +473,6 @@ print("Data appended successfully.")
         #'WS021': 'YMT',
         #'WS022': 'JOR',
         #'WS023': 'TST',
-        #'WS024': 'KWT',
         #'WS025': 'KWC',
         #'WS026': 'TKW',
         #'WS027': 'HUH',
