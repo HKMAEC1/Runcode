@@ -224,7 +224,7 @@ def scrape_data():
     return [d, retail_lease, CEN, WES, SHW, WAC, CAB, TIH, HAV, TAS, NOP, SKW, QUB, CHW, SOU, ADM, SSW, SWH, ABE, MOK, TST, JOR, YMT, TKT, SSP, CSW, MEF, KOC, TKW, HUH, SPK, WTS, KWT, KOB, YMT, PRI, HMT, KWC, TSY, TSW, TUM, YUL, TIS, SHS, FAN, TAP, SHT, TAW, MOS, TKO, SAK, ISI, LAK]
 
 def retry_scrape(url, max_retries, tag, class_name):
-        retries = 0
+    retries = 0
     while retries < max_retries:
         time.sleep(10)  # Add a delay to avoid overwhelming the server
         response = requests.get(url)
