@@ -216,13 +216,13 @@ def scrape_data():
     span_element = soup.find('h1', class_='list_res_num').find('span')
     MEF = span_element.text.replace(',', '')
 
-    #KWC
+    #KOC
     url025 = 'https://oir.centanet.com/en/lease/search/?districts=WS025&usages=Retail'
     time.sleep(5)
     response = requests.get(url025)
     soup = BeautifulSoup(response.content, 'html.parser')
     span_element = soup.find('h1', class_='list_res_num').find('span')
-    KWC = span_element.text.replace(',', '')
+    KOC = span_element.text.replace(',', '')
 
     #TKW
     url026 = 'https://oir.centanet.com/en/lease/search/?districts=WS026&usages=Retail'
