@@ -12,12 +12,11 @@ def get_data(url):
   data = driver.find_element_by_xpath('//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/div/div/div[2]/div/h2/span').text
   return data
 
-def store_sale(data):  # Store scrapped sale data to the list as int
-  if "," in data:
-    data = data.replace(",","")
-  else:
-    pass
-  new_data_sale.append(int(data))
+def store_sale(data):
+    if data != '':  # Check if data is not an empty string
+        if "," in data:
+            data = data.replace(",", "")
+        new_data_sale.append(int(data))
 
 def store_lease(data):  # Store scrapped lease data to the list as int
   if "," in data:
