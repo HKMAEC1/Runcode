@@ -9,7 +9,7 @@ import time
 def get_data(url):
   driver.get(url)
   time.sleep(5)
-  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+  data = driver.find_element_by_xpath('//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/div/div/div[2]/div/h2/span').text
   return data
 
 def store_sale(data):  # Store scrapped sale data to the list as int
@@ -42,8 +42,8 @@ options.add_argument("--safebrowsing-disable-download-protection")
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
-df_sale = pd.read_excel("中原放盤.xlsx", sheet_name="賣盤")
-df_lease = pd.read_excel("中原放盤.xlsx", sheet_name="租盤")
+df_sale = pd.read_excel("美聯放盤.xlsx", sheet_name="賣盤")
+df_lease = pd.read_excel("美聯放盤.xlsx", sheet_name="租盤")
 new_data_sale = []
 new_data_lease = []
 
@@ -52,185 +52,50 @@ print(d)
 new_data_sale.append(d)
 new_data_lease.append(d)
 
-#Sequence: All sale, sale_1m, sale_1.01m-2m, ..., sale_20m_or_above, sale_0-200ft, ..., sale_1000ft_or_above, sale_studio, ..., sale_4rooms_or_more
-sale_links = ["https://hk.centanet.com/findproperty/list/buy?q=3463167af7", "https://hk.centanet.com/findproperty/list/buy?q=9148d10403",
-              "https://hk.centanet.com/findproperty/list/buy?q=767ee297f7", "https://hk.centanet.com/findproperty/list/buy?q=4955e55325", "https://hk.centanet.com/findproperty/list/buy?q=92adc6cb7b",
-              "https://hk.centanet.com/findproperty/list/buy?q=90d18dcdd5", "https://hk.centanet.com/findproperty/list/buy?q=92adc715ad", "https://hk.centanet.com/findproperty/list/buy?q=92adc73a2f",
-              "https://hk.centanet.com/findproperty/list/buy?q=92adc76092", "https://hk.centanet.com/findproperty/list/buy?q=92adc784b4", "https://hk.centanet.com/findproperty/list/buy?q=92adc845a9",
-              "https://hk.centanet.com/findproperty/list/buy?q=92adc86a7b", "https://hk.centanet.com/findproperty/list/buy?q=92adc88fcd", "https://hk.centanet.com/findproperty/list/buy?q=92adc8b4b0",
-              "https://hk.centanet.com/findproperty/list/buy?q=92adc8d9c2", "https://hk.centanet.com/findproperty/list/buy?q=92adc8fe8e", "https://hk.centanet.com/findproperty/list/buy?q=92adc9bfc9",
-              "https://hk.centanet.com/findproperty/list/buy?q=92adc9e45f", "https://hk.centanet.com/findproperty/list/buy?q=92adca0a65", "https://hk.centanet.com/findproperty/list/buy?q=92adca2e6c",
-              "https://hk.centanet.com/findproperty/list/buy?q=92ade3e0d5", "https://hk.centanet.com/findproperty/list/buy?q=33e92a8639", "https://hk.centanet.com/findproperty/list/buy?q=9180e7652f",
-              "https://hk.centanet.com/findproperty/list/buy?q=9180e7d565", "https://hk.centanet.com/findproperty/list/buy?q=78d5b2bf97", "https://hk.centanet.com/findproperty/list/buy?q=9180e94802",
-              "https://hk.centanet.com/findproperty/list/buy?q=9180eafc4c", "https://hk.centanet.com/findproperty/list/buy?q=9180eb41b9", "https://hk.centanet.com/findproperty/list/buy?q=9180ec697b",
-              "https://hk.centanet.com/findproperty/list/buy?q=9180ecbf4d", "https://hk.centanet.com/findproperty/list/buy?q=a50effaa35", "https://hk.centanet.com/findproperty/list/buy?q=33e7b84607",
-              "https://hk.centanet.com/findproperty/list/buy?q=33e6c3d6bb", "https://hk.centanet.com/findproperty/list/buy?q=33e5faa963", "https://hk.centanet.com/findproperty/list/buy?q=33e617873f",
-              "https://hk.centanet.com/findproperty/list/buy?q=33e5ff0a96"]
+#Sequence: All sale, sale_3m, ..., sale_30m, sale_200ft, ..., sale_500ft)
+driver = webdriver.Chrome('/usr/bin/chromedriver', options = options)
 
-#Sequence: All lease, lease_0-200ft, ..., lease_1000ft_or_above, lease_studio, ..., lease_4rooms_or_more
-lease_links = ["https://hk.centanet.com/findproperty/list/rent?q=345cd78d03", "https://hk.centanet.com/findproperty/list/rent?q=a2f55a6ca7",
-               "https://hk.centanet.com/findproperty/list/rent?q=a2f55a91e7", "https://hk.centanet.com/findproperty/list/rent?q=a2f55b529d", "https://hk.centanet.com/findproperty/list/rent?q=a2f55b778a",
-               "https://hk.centanet.com/findproperty/list/rent?q=a2f55b9c42", "https://hk.centanet.com/findproperty/list/rent?q=a2f55bc147", "https://hk.centanet.com/findproperty/list/rent?q=a2f55be724",
-               "https://hk.centanet.com/findproperty/list/rent?q=a2f55c0c51", "https://hk.centanet.com/findproperty/list/rent?q=a2f55c2400", "https://hk.centanet.com/findproperty/list/rent?q=33e6b19896",
-               "https://hk.centanet.com/findproperty/list/rent?q=33e9c9c512", "https://hk.centanet.com/findproperty/list/rent?q=33e68e1b64", "https://hk.centanet.com/findproperty/list/rent?q=33e60b045b",
-               "https://hk.centanet.com/findproperty/list/rent?q=33e604c9a4"]
+sale_links = ["https://www.midland.com.hk/zh-hk/list/buy", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-9f94ee16",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-f1f7c295", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-9466ad7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-e071f291", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-4a1fabd7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-89cc6595", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-a11b0dd7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-34b3e799", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-82a1c2d7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-3958edae", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-9825f977",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-4b628795", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-88cfd3b7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-3ad35bf0", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-16f7cbf7",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-ca345a15", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-efdb0b14",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-7d688178", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-9a825477",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-74877fbc", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-3da07f75",              
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-215e6eef", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-6dbf926d",              
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-d1d84feb", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-f989626d",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-dc4a006f", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-5f35336d",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-d592fe3", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-25287f6d",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-d811f3f4", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-23c3ec1f",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-fff8fe1b", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-548ddd9a",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-1ae02d19", "https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-6f750c98",
+"https://www.midland.com.hk/zh-hk/list/buy/%E6%90%9C%E5%B0%8B-H-a197d854"]
 
-#Sale
-driver = webdriver.Chrome(ChromeDriverManager().install(), options = options)
-url = "https://hk.centanet.com/findproperty/list/buy"
-driver.get(url)
+for link in sale_links:
+  sale = get_data(link)
+  print(sale)
+  store_sale(sale)
 
-data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-print(data)
-store_sale(data)
-time.sleep(3)
 
-try:
-  for price in range(100,2001,100):
-      driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(price-99)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(price)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
-      time.sleep(3)
-
-      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-      print(data)
-      store_sale(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i').click()
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').clear()
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(2001)
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
-  time.sleep(3)
-  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-  print(data)
-  store_sale(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[5]/span/button/i[1]').click()
-  time.sleep(3)
-
-  for size in range(200,1001,100):
-      driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(size-99)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[2]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[2]/div/input').send_keys(size)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
-      time.sleep(3)
-
-      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-      print(data)
-      store_sale(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').clear()
-  driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(1001)
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
-  time.sleep(3)
-  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-  print(data)
-  store_sale(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i[1]').click()
-  time.sleep(3)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[7]/span/button/i').click()
-  time.sleep(3)
-
-  for fp in range(1,6):
-      driver.find_element_by_xpath(f'/html/body/ul[3]/div[2]/div/label[{fp}]/span[1]/span').click()
-      time.sleep(3)
-      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-      print(data)
-      store_sale(data)
-
-      driver.find_element_by_xpath(f'/html/body/ul[3]/div[2]/div/label[{fp}]/span[1]/span').click()
-      time.sleep(3)
-
-except:
-  print("Using backup method for sale data")
-  for link in sale_links[len(new_data_sale) - 2:]:
-    sale = get_data(link)
-    print(sale)
-    store_sale(sale)
+lease_links = ["https://www.midland.com.hk/zh-hk/list/rent", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-d2994d0",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-b60a7652", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-101cd7d4",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-2a40a652", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-3b47a071",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-c494d552", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-d49bf7dc",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-fea18952", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-af7bca2b",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-57cebad9", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-90e05084",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-3c4b7105", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-75f92186",
+"https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-21644207", "https://www.midland.com.hk/zh-hk/list/rent/%E6%90%9C%E5%B0%8B-H-5af2b2b"]             
+               
+for link in lease_links:
+  sale = get_data(link)
+  print(sale)
+  store_sale(sale)
 
 driver.quit()
-
-#Lease
-driver = webdriver.Chrome(ChromeDriverManager().install(), options = options)
-url = "https://hk.centanet.com/findproperty/list/rent"
-driver.get(url)
-
-data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-print(data)
-store_lease(data)
-time.sleep(3)
-
-try:
-  for size in range(200,1001,100):
-      driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(size-99)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE + Keys.BACKSPACE)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(size)
-      time.sleep(3)
-      driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
-      time.sleep(3)
-
-      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-      print(data)
-      store_lease(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i').click()
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').clear()
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(1001)
-  time.sleep(3)
-  driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
-  time.sleep(3)
-  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-  print(data)
-  store_lease(data)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[6]/span/button/i[1]').click()
-  time.sleep(3)
-
-  driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[3]/div/div[2]/div[1]/div[7]/span/button/i').click()
-  time.sleep(3)
-
-  for fp in range(1,6):
-      driver.find_element_by_xpath(f'/html/body/ul[2]/div[2]/div/label[{fp}]/span[1]/span').click()
-      time.sleep(3)
-      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[4]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
-      print(data)
-      store_lease(data)
-
-      driver.find_element_by_xpath(f'/html/body/ul[2]/div[2]/div/label[{fp}]/span[1]/span').click()
-      time.sleep(3)
-
-except:
-  print("Using backup method for lease data")
-  for link in lease_links[len(new_data_lease) - 2:]:
-    lease = get_data(link)
-    print(lease)
-    store_lease(lease)
-
-print(new_data_sale)
-print(new_data_lease)
 
 df_sale.loc[len(df_sale)] = new_data_sale
 df_lease.loc[len(df_lease)] = new_data_lease
@@ -238,7 +103,8 @@ df_sale['日期'] = pd.to_datetime(df_sale['日期'])
 df_sale['日期'] = df_sale['日期'].dt.strftime('%Y-%m-%d')
 df_lease['日期'] = pd.to_datetime(df_lease['日期'])
 df_lease['日期'] = df_lease['日期'].dt.strftime('%Y-%m-%d')
+print(df_sale)
 
-with pd.ExcelWriter("中原放盤.xlsx") as writer:
+with pd.ExcelWriter("美聯放盤.xlsx") as writer:
   df_sale.to_excel(writer, sheet_name="賣盤", index=False)
   df_lease.to_excel(writer, sheet_name="租盤", index=False)
