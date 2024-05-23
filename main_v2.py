@@ -9,7 +9,7 @@ import time
 def get_data(url):
   driver.get(url)
   time.sleep(5)
-  data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
   return data
 
 def store_sale(data):  # Store scrapped sale data to the list as int
@@ -80,7 +80,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install(), options = options)
 url = "https://hk.centanet.com/findproperty/list/buy"
 driver.get(url)
 
-data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
 print(data)
 store_sale(data)
 time.sleep(3)
@@ -98,7 +98,7 @@ try:
       driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
       time.sleep(3)
 
-      data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
       print(data)
       store_sale(data)
 
@@ -109,7 +109,7 @@ try:
   time.sleep(3)
   driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
   time.sleep(3)
-  data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
   print(data)
   store_sale(data)
 
@@ -128,7 +128,7 @@ try:
       driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
       time.sleep(3)
 
-      data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
       print(data)
       store_sale(data)
 
@@ -139,7 +139,7 @@ try:
   time.sleep(3)
   driver.find_element_by_xpath('/html/body/ul[2]/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
   time.sleep(3)
-  data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
   print(data)
   store_sale(data)
 
@@ -152,7 +152,7 @@ try:
   for fp in range(1,6):
       driver.find_element_by_xpath(f'/html/body/ul[3]/div[2]/div/label[{fp}]/span[1]/span').click()
       time.sleep(3)
-      data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
       print(data)
       store_sale(data)
 
@@ -173,7 +173,7 @@ driver = webdriver.Chrome(ChromeDriverManager().install(), options = options)
 url = "https://hk.centanet.com/findproperty/list/rent"
 driver.get(url)
 
-data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
 print(data)
 store_lease(data)
 time.sleep(3)
@@ -191,7 +191,7 @@ try:
       driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[2]/div/input').send_keys(Keys.ENTER)
       time.sleep(3)
 
-      data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
       print(data)
       store_lease(data)
 
@@ -202,7 +202,7 @@ try:
   time.sleep(3)
   driver.find_element_by_xpath('/html/body/ul/div[2]/div[2]/div[1]/div/input').send_keys(Keys.ENTER)
   time.sleep(3)
-  data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+  data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
   print(data)
   store_lease(data)
 
@@ -215,7 +215,7 @@ try:
   for fp in range(1,6):
       driver.find_element_by_xpath(f'/html/body/ul[2]/div[2]/div/label[{fp}]/span[1]/span').click()
       time.sleep(3)
-      data = driver.find_element_by_xpath('//*@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
+      data = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[5]/div[6]/div/div[1]/div[1]/div/h2/span/span').text
       print(data)
       store_lease(data)
 
