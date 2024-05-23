@@ -23,7 +23,7 @@ def get_data(url):
 
 
 def store_sale(data):
-    if data != '':  # Check if data is not an empty string
+    if data is not None:  # Check if data is not None
         if "," in data:
             data = data.replace(",", "")
         new_data_sale.append(int(data))
