@@ -7,10 +7,22 @@ from datetime import date, datetime, timedelta
 import time
 
 def get_data(url):
-  driver.get(url)
-  time.sleep(5)
-  data = driver.find_element_by_xpath('//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/div/div/div[2]/div/h2/span').text
-  return data
+    driver.get(url)
+    time.sleep(5)
+    
+    xpath1 = '//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/div/div/div[2]/div/h2/span'
+    xpath2 = '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div/div[2]/div/h2/span'
+    
+    try:
+        data = driver.find_element_by_xpath(xpath1).text
+    except NoSuchElementException:
+        try:
+            data = driver.find_element_by_xpath(xpath2).text
+        except NoSuchElementException:
+            print("Data element not found with both XPaths.")
+            return None
+
+    return data
 
 def store_sale(data):
     if data != '':  # Check if data is not an empty string
