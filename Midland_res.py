@@ -15,14 +15,12 @@ def get_data(url):
     
     try:
         data = driver.find_element_by_xpath(xpath1).text
-    except NoSuchElementException:
-        try:
+    except Exception as e:
+        if 'no such element' in str(e).lower():
             data = driver.find_element_by_xpath(xpath2).text
-        except NoSuchElementException:
-            print("Data element not found with both XPaths.")
-            return None
+        else:
+            raise  
 
-    return data
 
 def store_sale(data):
     if data != '':  # Check if data is not an empty string
